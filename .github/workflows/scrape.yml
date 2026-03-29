@@ -1,0 +1,40 @@
+name: Scrape Facebook Posts
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Chạy mỗi 30 phút
+  workflow_dispatch: # Cho phép chạy bằng tay trên web
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install Playwright Browsers
+      run: npx playwright install chromium
+
+    - name: Run Scraper
+      env:
+        COOKIES_JSON: ${{ secrets.COOKIES_JSON }}
+      run: npm run scrape
+
+    - name: Commit data.json back to repo
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add public/data.json
+        git commit -m "Auto-update Facebook posts data [skip ci]" || echo "No changes to commit"
+        git push

@@ -2,7 +2,7 @@ name: Scrape Facebook Posts
 
 on:
   schedule:
-    - cron: '*/30 * * * *' # Chạy mỗi 30 phút
+    - cron: '*/5 * * * *' # Chạy mỗi 5 phút
   workflow_dispatch: # Cho phép chạy bằng tay trên web
 
 jobs:
@@ -29,6 +29,7 @@ jobs:
     - name: Run Scraper
       env:
         COOKIES_JSON: ${{ secrets.COOKIES_JSON }}
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: npm run scrape
 
     - name: Commit data.json back to repo

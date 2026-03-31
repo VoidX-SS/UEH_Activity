@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "lastUpdated": "2026-03-31T10:56:32.149Z",
   "pages": {
     "Ngoại Ngữ": [
@@ -273,5 +274,25 @@
         }
       }
     ]
+=======
+  "lastUpdated": "2026-03-31T10:11:09.454Z",
+  "pages": {
+    "Ngoại Ngữ": [],
+    "Toán - Thống Kê": [],
+    "Luật": [],
+    "BIT": [],
+    "Kinh Tế": [],
+    "Kế Toán": [],
+    "Kinh Doanh Quốc Tế - Marketing": [],
+    "Chính Trị - Xã Hội": [],
+    "KTX": [],
+    "Công Nghệ Kinh Tế": [],
+    "Quản Trị": [],
+    "Quản Lý Nhà Nước": [],
+    "English Zone": [],
+    "Ngân Hàng": [],
+    "Du Lịch": [],
+    "UEH Youth": []
+>>>>>>> 16de08234786acd005c68ed5da947e2c71590c89
   }
 }
